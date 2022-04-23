@@ -1,5 +1,5 @@
 from flask import Flask
-From controllers import bp
+from controllers import bp
 app = Flask(__name__)
 
 app.register_blueprint(bp)
