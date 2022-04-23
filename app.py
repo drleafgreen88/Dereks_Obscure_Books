@@ -1,5 +1,5 @@
 from flask import Flask
-from controllers import bp
+from controllers.book_store_controller import book_store_bp
 app = Flask(__name__)
 
-app.register_blueprint(bp)
+app.register_blueprint(book_store_bp)
