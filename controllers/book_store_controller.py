@@ -8,4 +8,9 @@ book_store_bp = Blueprint('book_store', __name__)
 
 @book_store_bp.route('/')
 def home():
-    return render_template('index.html') 
+    return render_template('index.html')
+
+# @book_store_bp.route('/allbooks/')
+# def allbooks():
+#     books = book_repository.select_all()
+#     return render_template('index.html',all_books=books) 
