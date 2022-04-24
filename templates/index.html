@@ -3,4 +3,17 @@
 
 Welcome to Derek's Obscure Books. We sell books that nobody read then and nobody reads now.
 
+{% for book in all_books %}
+<ul>
+    <li>{{book.title}}</li>
+    <!-- <li>{{book.author.first_name}} {{book.author.last_name}}</li> -->
+    <!-- <form class="delete-form" action="/{{book.id}}/delete" method="post">
+        <button class="trash-button">
+            <i class="fa fa-trash-o fa-1x" style="color:rgb(229, 14, 150)" aria-hidden="true"></i>
+        </button>
+    </form> -->
+</ul>
+
+{% endfor %}
+
 {% endblock %}
