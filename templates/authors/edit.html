@@ -3,12 +3,13 @@
 
 <h2>Update an Author</h2>
 
+
 <form action="/authors/{{ author.id }}" method="POST">
     <div>
         <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" first_name="first_name" value="{{ author.first_name }}">
+        <input type="text" id="first_name" name="first_name" value="{{ author.first_name }}">
         <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" last_name="last_name" value="{{ author.last_name }}">
+        <input type="text" id="last_name" name="last_name" value="{{ author.last_name }}">
         <input type="submit">
     </div>
 </form>
