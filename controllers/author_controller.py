@@ -18,3 +18,9 @@ def update_author(id):
     author = Author(first_name, last_name, id)
     author_repository.update(author)
     return redirect("/authors")
+
+# EDIT
+@author_bp.route("/authors/<id>/edit")
+def edit_author(id):
+    author = author_repository.select(id)
+    return render_template('authors/edit.html', author=author)
