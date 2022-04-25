@@ -8,7 +8,7 @@
 <section>
     <p>{{ publisher.name }}</p>
     <a href="/publishers/{{ publisher.id }}/edit"></a>
-    <form action="/publishers/{{ publisher.id }}/edit" method="POST">
+    <form action="/publishers/{{ publisher.id }}/edit">
         <input type="submit" value="Edit">
     </form>
     <form action="/publishers/{{ publisher.id }}/delete" method="POST">
