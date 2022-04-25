@@ -36,7 +36,7 @@ def select(id):
         result = result[0]
         author = author_repository.select(result['author_id'])
         publisher = publisher_repository.select(result['publisher_id'])
-        book = Book(result['title'], author, publisher, result['genre'], result['buying_price'], result['selling_price'], result['stock_quanity'], result['id'])
+        book = Book(result['title'], author, publisher, result['genre'], result['buying_price'], result['selling_price'], result['stock_quantity'], result['id'])
     return book
 
 def delete_all():
@@ -50,6 +50,6 @@ def delete(id):
     run_sql(sql, values)
 
 def update(book):
-    sql = "UPDATE books SET (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quanity) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [book.title, book.author.id, book.publisher.id, book.genre, book.buying_price, book.selling_price, book.stock_quanity, book.id]
+    sql = "UPDATE books SET (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quantity) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [book.title, book.author, book.publisher, book.genre, book.buying_price, book.selling_price, book.stock_quantity, book.id]
     run_sql(sql, values)
