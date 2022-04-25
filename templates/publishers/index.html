@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Publishers</h2>
+
+{% for publisher in publishers %}
+
+<section>
+    <p>{{ publisher.name }}</p>
+    <a href="/publishers/{{ publisher.id }}/edit"></a>
+    <form action="/publishers/{{ publisher.id }}/edit" method="POST">
+        <input type="submit" value="Edit">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}

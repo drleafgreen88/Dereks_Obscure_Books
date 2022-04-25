@@ -15,14 +15,14 @@ def save(publisher):
     publisher.id = id
     return publisher
 
-def select_all(publisher):
+def select_all():
     publishers = []
     sql = "SELECT * FROM publishers"
     results = run_sql(sql)
     for row in results:
         publisher = Publisher(row['name'], row['id'] )
         publishers.append(publisher)
-    return publisher
+    return publishers
 
 def select(id):
     sql = "SELECT * FROM publishers WHERE id = %s"

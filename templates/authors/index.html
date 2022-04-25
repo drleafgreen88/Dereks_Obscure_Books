@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Authors</h2>
+
+{% for author in authors %}
+
+<section>
+    <p>{{ author.first_name }} {{author.last_name }}</p>
+    <a href="/authors/{{ author.id }}/edit"></a>
+    <form action="/authors/{{ author.id }}/edit" method="POST">
+        <input type="submit" value="Edit">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
