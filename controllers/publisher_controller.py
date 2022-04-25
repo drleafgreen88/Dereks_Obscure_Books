@@ -26,3 +26,16 @@ def update_publisher(id):
 def edit_publisher(id):
     publisher = publisher_repository.select(id)
     return render_template('publishers/edit.html', publisher=publisher)
+
+# NEW
+@publisher_bp.route("/publishers/new")
+def new_publisher():
+    return render_template("publishers/new.html")
+
+# CREATE
+@publisher_bp.route("/publishers", methods=["POST"])
+def create_publisher():
+    name = request.form["name"]
+    new_publisher = Publisher(name)
+    publisher_repository.save(new_publisher)
+    return redirect("/publishers")
