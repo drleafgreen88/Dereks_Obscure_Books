@@ -20,5 +20,6 @@ CREATE TABLE books (
     publisher_id INT NOT NULL REFERENCES publishers(id),
     genre VARCHAR(255),
     buying_price INT NOT NULL,
-    selling_price INT NOT NULL --You may need to change to decimal or float if you don't want whole numbers.
+    selling_price INT NOT NULL,
+    stock_quantity INT NOT NULL
 );

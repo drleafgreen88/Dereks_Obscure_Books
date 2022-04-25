@@ -23,3 +23,27 @@ def select_all(publisher):
         publisher = Publisher(row['name'], row['id'] )
         publishers.append(publisher)
     return publisher
+
+def select(id):
+    sql = "SELECT * FROM publishers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    publisher = Publisher(result["name"] ,result["id"])
+    return publisher
+
+
+def delete_all():
+    sql = "DELETE FROM publishers"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE FROM publishers WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def update(publisher):
+    sql = "UPDATE publishers SET name = %s WHERE id = %s"
+    values = [publisher.name, publisher.id]
+    run_sql(sql, values)

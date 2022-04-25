@@ -18,8 +18,8 @@ publisher_repository.save(publisher1)
 publisher2 = Publisher("Oxford World's Classics")
 publisher_repository.save(publisher2)
 
-book1 = Book("Therese Raquin", author1, publisher1, "French Naturalism", 5, 7)
+book1 = Book("Therese Raquin", author1, publisher1, "French Naturalism", 5, 7, 10)
 book_repository.save(book1)
 
-book2 = Book("Sister Carrie", author2, publisher2, "American Naturalism", 7, 9)
+book2 = Book("Sister Carrie", author2, publisher2, "American Naturalism", 7, 9, 5)
 book_repository.save(book2)

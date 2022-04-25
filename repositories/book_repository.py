@@ -8,8 +8,8 @@ import repositories.author_repository as author_repository
 import repositories.publisher_repository as publisher_repository 
 
 def save(book):
-    sql = "INSERT INTO books (title, author_id, publisher_id, genre, buying_price, selling_price) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [book.title, book.author.id, book.publisher.id, book.genre, book.buying_price, book.selling_price]
+    sql = "INSERT INTO books (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quantity) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [book.title, book.author.id, book.publisher.id, book.genre, book.buying_price, book.selling_price, book.stock_quantity]
     results = run_sql(sql, values)
     id = results[0]['id']
     book.id = id
@@ -22,6 +22,34 @@ def select_all():
     for row in results:
         author = author_repository.select(row['author_id'])
         publisher = publisher_repository.select(row['publisher_id'])
-        book = Book(row['title'], author, publisher, row['genre'], row['buying_price'], row['selling_price'], row['id'])
+        book = Book(row['title'], author, publisher, row['genre'], row['buying_price'], row['selling_price'], row['stock_quantity'], row['id'])
         books.append(book)
     return books
+
+def select(id):
+    book = None
+    sql = "SELECT * FROM books WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+
+    if result:
+        result = result[0]
+        author = author_repository.select(result['author_id'])
+        publisher = publisher_repository.select(result['publisher_id'])
+        book = Book(result['title'], author, publisher, result['genre'], result['buying_price'], result['selling_price'], result['stock_quanity'], result['id'])
+    return book
+
+def delete_all():
+    sql = "DELETE FROM books"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE  FROM books WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(book):
+    sql = "UPDATE books SET (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quanity) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [book.title, book.author.id, book.publisher.id, book.genre, book.buying_price, book.selling_price, book.stock_quanity, book.id]
+    run_sql(sql, values)
