@@ -39,3 +39,9 @@ def create_publisher():
     new_publisher = Publisher(name)
     publisher_repository.save(new_publisher)
     return redirect("/publishers")
+
+# DELETE
+@publisher_bp.route("/publishers/<id>/delete", methods=["POST"])
+def delete_author(id):
+    publisher_repository.delete(id)
+    return redirect("/publishers")

@@ -62,3 +62,9 @@ def create_book():
     # new_author = Author(first_name, last_name)
     # author_repository.save(new_author)
     # return redirect("/authors")
+
+# DELETE
+@books_bp.route("/books/<id>/delete", methods=["POST"])
+def delete_book(id):
+    book_repository.delete(id)
+    return redirect("/books")

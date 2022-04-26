@@ -38,3 +38,9 @@ def create_author():
     new_author = Author(first_name, last_name)
     author_repository.save(new_author)
     return redirect("/authors")
+
+# DELETE
+@author_bp.route("/authors/<id>/delete", methods=["POST"])
+def delete_author(id):
+    author_repository.delete(id)
+    return redirect("/authors")
