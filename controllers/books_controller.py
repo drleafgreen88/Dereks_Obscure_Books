@@ -1,5 +1,7 @@
 from flask import Flask, redirect, render_template, Blueprint, request
 from models.book import Book
+from models.author import Author
+from models.publisher import Publisher
 
 import repositories.author_repository as author_repository
 import repositories.book_repository as book_repository
@@ -36,3 +38,27 @@ def update_book(id):
 def edit_book(id):
     book = book_repository.select(id)
     return render_template('books/edit.html', book=book)
+
+# NEW
+@books_bp.route("/books/new")
+def new_book():
+    return render_template("books/new.html")
+
+# CREATE
+@books_bp.route("/books", methods=["POST"])
+def create_book():
+    title = request.form["title"]
+    author = request.form["author"]
+    publisher = request.form["publisher"]
+    genre = request.form["genre"]
+    buying_price = request.form["buying_price"]
+    selling_price = request.form["selling_price"]
+    stock_quantity = request.form["stock_quantity"]
+    new_book = Book(title, author, publisher, genre, buying_price, selling_price, stock_quantity)
+    book_repository.save(new_book)
+    return redirect("/books")
+    # first_name = request.form["first_name"]
+    # last_name = request.form["last_name"]
+    # new_author = Author(first_name, last_name)
+    # author_repository.save(new_author)
+    # return redirect("/authors")
