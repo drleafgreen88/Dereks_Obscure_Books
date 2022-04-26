@@ -18,6 +18,11 @@ h2 {
     text-decoration: underline;
 }
 
+div {
+    background-color: aliceblue;
+    border-style: solid;
+}
+
 /* body > div {
     text-align: center;
     font-style: italic;
