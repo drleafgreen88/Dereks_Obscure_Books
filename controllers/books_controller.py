@@ -36,13 +36,18 @@ def update_book(id):
 # EDIT
 @books_bp.route("/books/<id>/edit")
 def edit_book(id):
+    authors = author_repository.select_all()
+    publishers = publisher_repository.select_all()
     book = book_repository.select(id)
-    return render_template('books/edit.html', book=book)
+    return render_template('books/edit.html', book=book, authors=authors, publishers=publishers)
 
 # NEW
 @books_bp.route("/books/new")
 def new_book():
-    return render_template("books/new.html")
+    authors = author_repository.select_all()
+    publishers = publisher_repository.select_all()
+    return render_template("books/new.html", authors = authors, publishers = publishers)
+    #cross-check zombies and bitings - will need to pass through the authors and publishers to supply your drop downs
 
 # CREATE
 @books_bp.route("/books", methods=["POST"])

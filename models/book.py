@@ -9,4 +9,5 @@ class Book:
         self.stock_quantity = stock_quantity
         self.id = id
 
+# Could create a new function to set the stock level and call it as part of creating your object instance in the constructor (init) function above
 #Do we need genre if all the books are Naturalist fiction?
