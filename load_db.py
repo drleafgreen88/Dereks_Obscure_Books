@@ -12,13 +12,13 @@ author_repository.save(author1)
 author2 = Author("Theodore","Dreiser")
 author_repository.save(author2)
 
-author3 = Author("Upton", "Sinclair")
+author3 = Author("Upton","Sinclair")
 author_repository.save(author3)
 
-author4 = Author("Thomas", "Hardy")
+author4 = Author("Thomas","Hardy")
 author_repository.save(author4)
 
-author5 = Author("Frank", "Norris")
+author5 = Author("Frank","Norris")
 author_repository.save(author5)
 
 publisher1 = Publisher("Vintage Classics")

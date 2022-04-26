@@ -9,7 +9,7 @@ import repositories.publisher_repository as publisher_repository
 
 def save(book):
     sql = "INSERT INTO books (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quantity) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [book.title, book.author, book.publisher, book.genre, book.buying_price, book.selling_price, book.stock_quantity]
+    values = [book.title, book.author.id, book.publisher.id, book.genre, book.buying_price, book.selling_price, book.stock_quantity]
     results = run_sql(sql, values)
     id = results[0]['id']
     book.id = id

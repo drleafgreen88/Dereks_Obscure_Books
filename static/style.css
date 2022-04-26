@@ -1,6 +1,12 @@
 h1 {
     text-align: center;
     text-decoration: underline;
+    font-style: italic;
+    font-size: xx-large;
+}
+
+body {
+    background-color: blanchedalmond;
 }
 
 /* body > div {
