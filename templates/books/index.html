@@ -3,18 +3,46 @@
 
 <h2>Books</h2>
 
-{% for book in books %}
+<table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Genre</th>
+      <th>Buying Price</th>
+      <th>Selling Price</th>
+      <th>Stock Quantity</th>
+      <th>Stock Level</th>
+      <th></th>
+    </tr>
 
-<section>
-    <p>Title: <i> {{ book.title }} </i> | Author: {{ book.author.first_name }} {{ book.author.last_name }} | Publisher: {{ book.publisher.name }} | Genre: {{ book.genre }} | Buying Price: £{{ book.buying_price }} | Selling Price: £{{ book.selling_price }} | Stock Quantity: {{ book.stock_quantity }} | Stock Level: {{ book.stock_level }}</p>
-    <a href="/books/{{ book.id }}/edit"></a>
-    <form action="/books/{{ book.id }}/edit">
-        <input type="submit" value="Edit">
-    </form>
-    <form action="/books/{{ book.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
-</section>
+    {% for book in books %}
 
-{% endfor %}
+    <tr>
+      <td><i> {{ book.title }} </i></td>
+      <td>{{ book.author.full_name }}</td>
+      <td>{{ book.publisher.name }}</td>
+      <td>{{ book.genre }}</td>
+      <td>{{ book.buying_price }}</td>
+      <td>{{ book.selling_price }}</td>
+      <td>{{ book.stock_quantity }}</td>
+      <td>{{ book.stock_level }}</td>
+      <td><a href="/books/{{ book.id }}/edit"></a>
+        <form action="/books/{{ book.id }}/edit">
+            <input type="submit" value="Edit">
+            <br>
+        </form>
+        <form action="/books/{{ book.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+        </form></td>
+    </tr>
+
+    {% endfor %}
+
+  </table>
+
+
+
+
 {% endblock %}
+
