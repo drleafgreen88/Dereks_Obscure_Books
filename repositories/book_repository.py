@@ -53,3 +53,11 @@ def update(book):
     sql = "UPDATE books SET (title, author_id, publisher_id, genre, buying_price, selling_price, stock_quantity) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [book.title, book.author, book.publisher, book.genre, book.buying_price, book.selling_price, book.stock_quantity, book.id]
     run_sql(sql, values)
+
+def stock_level(stock_quantity):
+    if stock_quantity >= 6:
+        print ("Good level of stock.")
+    elif stock_quantity <= 5:
+        print ("Low stock! Please re-order soon.")
+    elif stock_quantity == 0:
+        print ("Out of stock!")

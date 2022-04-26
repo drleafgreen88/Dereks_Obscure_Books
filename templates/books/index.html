@@ -6,7 +6,7 @@
 {% for book in books %}
 
 <section>
-    <p>Title: {{ book.title }} | Author: {{ book.author.first_name }} {{ book.author.last_name }} | Publisher: {{ book.publisher.name }} | Genre: {{ book.genre }} | Buying Price: £{{ book.buying_price }} | Selling Price: £{{ book.selling_price }} | Stock Quantity: {{ book.stock_quantity }}</p>
+    <p>Title: {{ book.title }} | Author: {{ book.author.first_name }} {{ book.author.last_name }} | Publisher: {{ book.publisher.name }} | Genre: {{ book.genre }} | Buying Price: £{{ book.buying_price }} | Selling Price: £{{ book.selling_price }} | Stock Quantity: {{ book.stock_quantity }} | Stock Level: {{ book.stock_level }}</p>
     <a href="/books/{{ book.id }}/edit"></a>
     <form action="/books/{{ book.id }}/edit">
         <input type="submit" value="Edit">
