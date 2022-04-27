@@ -36,15 +36,12 @@ def edit_book(id):
     book = book_repository.select(id)
     return render_template('books/edit.html', book=book, authors=authors, publishers=publishers)
 
-# NEW
 @books_bp.route("/books/new")
 def new_book():
     authors = author_repository.select_all()
     publishers = publisher_repository.select_all()
     return render_template("books/new.html", authors = authors, publishers = publishers)
-    #cross-check zombies and bitings - will need to pass through the authors and publishers to supply your drop downs
 
-# CREATE
 @books_bp.route("/books", methods=["POST"])
 def create_book():
     title = request.form["title"]
@@ -58,8 +55,6 @@ def create_book():
     book_repository.save(new_book)
     return redirect("/books")
 
-
-# DELETE
 @books_bp.route("/books/<id>/delete", methods=["POST"])
 def delete_book(id):
     book_repository.delete(id)

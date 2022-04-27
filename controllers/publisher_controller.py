@@ -13,7 +13,6 @@ def publishers():
     print (publishers)
     return render_template("publishers/index.html", publishers = publishers)
 
-# UPDATE
 @publisher_bp.route("/publishers/<id>", methods=["POST"])
 def update_publisher(id):
     name = request.form["name"]
@@ -21,18 +20,15 @@ def update_publisher(id):
     publisher_repository.update(publisher)
     return redirect("/publishers")
 
-# EDIT
 @publisher_bp.route("/publishers/<id>/edit")
 def edit_publisher(id):
     publisher = publisher_repository.select(id)
     return render_template('publishers/edit.html', publisher=publisher)
 
-# NEW
 @publisher_bp.route("/publishers/new")
 def new_publisher():
     return render_template("publishers/new.html")
 
-# CREATE
 @publisher_bp.route("/publishers", methods=["POST"])
 def create_publisher():
     name = request.form["name"]
@@ -40,7 +36,6 @@ def create_publisher():
     publisher_repository.save(new_publisher)
     return redirect("/publishers")
 
-# DELETE
 @publisher_bp.route("/publishers/<id>/delete", methods=["POST"])
 def delete_author(id):
     publisher_repository.delete(id)

@@ -19,4 +19,3 @@ def get_stock_level(stock_quantity):
 
     return stock_level
 
-# Could create a new function to set the stock level and call it as part of creating your object instance in the constructor (init) function above

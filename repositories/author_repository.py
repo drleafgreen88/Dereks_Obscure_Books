@@ -25,12 +25,7 @@ def save(author):
         return author
     except BaseException:
         print("sorry that author already exists")
-    # print(results)
 
-    # id = results[0]['id']
-
-    # author.id = id
-    #return author
 
 def select_all():
     authors = []
