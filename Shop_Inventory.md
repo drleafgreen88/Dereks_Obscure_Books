@@ -21,3 +21,6 @@ eBay, Amazon (back end only), Magento
 * Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author.
 * Categorise your items. Books might be categorised by genre (crime, horror, romance...) and cars might be categorised by type (SUV, coupé, hatchback...). Provide an option to filter the inventory list by these categories.
 * Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
+
+#To filter, add a new select onto the index (publisher or author). Refer to the changes made to edit/new Book. Do this as a form(button) and have that route to a search function on the books controller. Pass the author/publisher ID.
+#Also try adding a filter display to the authors and publishers sections.
