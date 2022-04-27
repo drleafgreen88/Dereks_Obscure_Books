@@ -27,11 +27,6 @@ def update_book(id):
     book = Book(title, author, publisher, genre, buying_price, selling_price, stock_quantity, id)
     book_repository.update(book)
     return redirect("/books")
-    # first_name = request.form["first_name"]
-    # last_name = request.form["last_name"]
-    # author = Author(first_name, last_name, id)
-    # author_repository.update(author)
-    # return redirect("/authors")
 
 # EDIT
 @books_bp.route("/books/<id>/edit")
@@ -62,11 +57,7 @@ def create_book():
     new_book = Book(title, author, publisher, genre, buying_price, selling_price, stock_quantity)
     book_repository.save(new_book)
     return redirect("/books")
-    # first_name = request.form["first_name"]
-    # last_name = request.form["last_name"]
-    # new_author = Author(first_name, last_name)
-    # author_repository.save(new_author)
-    # return redirect("/authors")
+
 
 # DELETE
 @books_bp.route("/books/<id>/delete", methods=["POST"])
