@@ -74,10 +74,3 @@ def delete_book(id):
     book_repository.delete(id)
     return redirect("/books")
 
-# def stock_level(stock_quantity):
-#     if stock_quantity >= 6:
-#         print ("Good level of stock.")
-#     elif stock_quantity <= 5:
-#         print ("Low stock! Please re-order soon.")
-#     elif stock_quantity == 0:
-#         print ("Out of stock!")
