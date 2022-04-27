@@ -3,18 +3,27 @@
 
 <h2>Publishers</h2>
 
-{% for publisher in publishers %}
+<table>
+    <tr>
+        <th>Publisher Name</th>
+        <th></th>
+    </tr>
 
-<section>
-    <p>{{ publisher.name }}</p>
-    <a href="/publishers/{{ publisher.id }}/edit"></a>
-    <form action="/publishers/{{ publisher.id }}/edit">
-        <input type="submit" value="Edit">
-    </form>
-    <form action="/publishers/{{ publisher.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
-</section>
+    {% for publisher in publishers %}
 
-{% endfor %}
+    <tr>
+        <td>{{ publisher.name }}</td>
+        <td><a href="/publishers/{{ publisher.id }}/edit"></a>
+            <form action="/publishers/{{ publisher.id }}/edit">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="/publishers/{{ publisher.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form></td> 
+    </tr>
+
+    {% endfor %}
+
+</table>
+
 {% endblock %}
