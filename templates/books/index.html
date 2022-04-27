@@ -3,6 +3,16 @@
 
 <h2>Books</h2>
 
+<form action="books/filter_by_author" method="post">
+<select name="author" id="author">
+    {% for author in authors %}
+    <option value="{{ author.id }}">
+        {{ author.full_name }}
+    </option>
+    {% endfor %}</select>
+    <input type="submit" value="Search">
+</form>
+
 <table class="center">
     <tr>
       <th>Title</th>

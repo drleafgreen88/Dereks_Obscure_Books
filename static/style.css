@@ -7,16 +7,13 @@ h1 {
 
 body {
     background-color: blanchedalmond;
+    margin: 20px;
+    font-family: 'Libre Bodoni', serif;
 }
 
 header {
     border-style: solid;
     background-color: aliceblue
-}
-
-nav {
-    display: inline;
-    float:none
 }
 
 
@@ -51,9 +48,33 @@ footer {
     background-color:aliceblue;
     color: black;
     text-align: center;
-  }
+}
+
+.container > aside {
+    text-align: center;
+    display:block;
+}
 
 aside {
-    text-align: center
+    text-align: center;
+    display:inline-block;
 }
+
+nav > ul > li {
+    float: left;
+    padding: 10px;
+    list-style: none;
+}
+
+nav > ul {
+    padding-left: 35%;
+    width: 80%;
+}
+
+table {
+    background-color: whitesmoke;
+}
+
+
+
 

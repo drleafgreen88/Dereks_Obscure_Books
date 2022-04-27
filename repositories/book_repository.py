@@ -54,3 +54,17 @@ def update(book):
     values = [book.title, book.author, book.publisher, book.genre, book.buying_price, book.selling_price, book.stock_quantity, book.id]
     run_sql(sql, values)
 
+def select_by_author(author_id):
+    books = []
+    sql = "SELECT * FROM books WHERE author_id = %s"
+    values = [author_id]
+    results = run_sql(sql, values)
+
+    if results:
+        for row in results:
+            author = author_repository.select(row['author_id'])
+            publisher = publisher_repository.select(row['publisher_id'])
+            book = Book(row['title'], author, publisher, row['genre'], row['buying_price'], row['selling_price'], row['stock_quantity'], row['id'])
+            books.append(book)
+    return books
+

@@ -12,7 +12,16 @@ books_bp = Blueprint('books', __name__)
 @books_bp.route("/books")
 def books():
     books = book_repository.select_all()
-    return render_template("books/index.html", books = books)
+    authors = author_repository.select_all()
+    return render_template("books/index.html", books = books, authors=authors)
+
+#FILTER BY AUTHOR
+@books_bp.route("/books/filter_by_author", methods=["POST"])
+def filter_by_author():
+    books = book_repository.select_by_author(request.form["author"])
+    authors = author_repository.select_all()
+    return render_template("books/index.html", books = books, authors=authors)
+
 
 # UPDATE
 @books_bp.route("/books/<id>", methods=["POST"])

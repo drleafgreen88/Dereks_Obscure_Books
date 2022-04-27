@@ -11,7 +11,8 @@
         <label for="author">Author:</label>
         <select name="author" id="author">
             {% for author in authors %}
-            <option value="{{ author.id }}">
+
+            <option value="{{ author.id }}" {% if author.id == book.author.id %} selected {% endif %}>
                 {{ author.full_name }}
             </option>
             {% endfor %}
@@ -19,7 +20,7 @@
         <label for="publisher">Publisher:</label>
         <select name="publisher" id="publisher">
             {% for publisher in publishers %}
-            <option value="{{ publisher.id }}">
+            <option value="{{ publisher.id }}" {% if publisher.id == book.publisher.id %} selected {% endif %}>
                 {{ publisher.name }}
             </option>
             {% endfor %}
