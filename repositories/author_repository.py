@@ -9,13 +9,6 @@ import repositories.book_repository as book_repository
 import repositories.publisher_repository as publisher_repository
 
 def save(author):
-    # Using "try... except" will let you gracefully handle any database errors which occur (i.e. stop the application crashing)
-    # the except code will only run in the event of an exception occuring which matches the type specified. The BaseException 
-    # will catch all exceptions thrown. 
-
-    # Another option is to check for duplicates prior to calling save that may let you handle the messages to the front end 
-    # more easily. In most professional applications we tend to do both, check that it won't happen and then gracefully handle
-    # any unexpected errors that may occur. 
     sql = "INSERT INTO authors (first_name, last_name) VALUES (%s, %s) RETURNING *"
     values = [author.first_name, author.last_name]
     try:

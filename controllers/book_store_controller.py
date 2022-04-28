@@ -10,4 +10,3 @@ book_store_bp = Blueprint('book_store', __name__)
 def home():
     return render_template('index.html')
 
- 

@@ -9,7 +9,7 @@ Build an app which allows a shopkeeper to track their shop's inventory. This is 
 * The shop can sell anything you like, but you should be able to create and edit manufacturers and products separately. #Done
   * This might mean that it makes more sense for a car shop to track makes and models of cars. Or a bookstore might sell books by author, or by publisher, and not by manufacturer. You are free to name classes and tables as appropriate to your project. #Done
 * Show an inventory page, listing all the details for all the products in stock in a single view. #Done
-* As well as showing stock quantity as a number, the app should visually highlight "low stock" and "out of stock" items to the user.
+* As well as showing stock quantity as a number, the app should visually highlight "low stock" and "out of stock" items to the user. #Done
 
 #### Inspired by
 
@@ -18,9 +18,6 @@ eBay, Amazon (back end only), Magento
 #### Possible Extensions
 
 * Calculate the markup on items in the store, and display it in the inventory
-* Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author.
+* Filter the inventory list by manufacturer. For example, provide an option to view all books in stock by a certain author. #Done
 * Categorise your items. Books might be categorised by genre (crime, horror, romance...) and cars might be categorised by type (SUV, coupé, hatchback...). Provide an option to filter the inventory list by these categories.
 * Mark manufacturers as active/deactivated. Deactivated manufacturers will not appear when creating new products.
-
-#To filter, add a new select onto the index (publisher or author). Refer to the changes made to edit/new Book. Do this as a form(button) and have that route to a search function on the books controller. Pass the author/publisher ID.
-#Also try adding a filter display to the authors and publishers sections.
