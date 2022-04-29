@@ -17,7 +17,7 @@ def save(author):
         author.id = id
         return author
     except BaseException:
-        print("sorry that author already exists")
+        print("Sorry, that author already exists.")
 
 
 def select_all():
